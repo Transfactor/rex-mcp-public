@@ -1,0 +1,5 @@
+node_modules/
+dist/
+rex-mcp.json
+.env
+state/

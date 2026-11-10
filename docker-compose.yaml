@@ -1,0 +1,18 @@
+services:
+  rex-mcp:
+    build: .
+    restart: unless-stopped
+    environment:
+      - REX_MCP_PUBLIC_URL=${REX_MCP_PUBLIC_URL}
+      - REX_MCP_OWNER_SECRET=${REX_MCP_OWNER_SECRET}
+      - REX_MCP_TOKEN=${REX_MCP_TOKEN:-}
+      - TS_AUTHKEY=${TS_AUTHKEY:-}
+    volumes:
+      - rex-mcp-tailscale:/var/lib/tailscale
+      - rex-mcp-data:/data
+    expose:
+      - "8787"
+
+volumes:
+  rex-mcp-tailscale:
+  rex-mcp-data:

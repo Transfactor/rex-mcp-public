@@ -1,0 +1,48 @@
+{
+  "name": "rex-mcp",
+  "version": "0.1.0",
+  "description": "MCP server that gives an AI agent status and control of Superlogical Rex servers",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "rex-mcp": "dist/main.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/main.js",
+    "dev": "node --experimental-strip-types src/main.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:live": "REX_LIVE=1 vitest run test/live.test.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "express": "^5.3.0",
+    "socks-proxy-agent": "^10.1.0",
+    "ws": "^8.22.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "@types/ws": "^8.18.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Transfactor/rex-mcp-public.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "rex",
+    "superlogical",
+    "tailscale",
+    "claude"
+  ]
+}

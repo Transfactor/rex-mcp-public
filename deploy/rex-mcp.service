@@ -1,0 +1,31 @@
+[Unit]
+Description=Rex MCP server
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=rexmcp
+Group=rexmcp
+WorkingDirectory=/opt/rex-mcp
+EnvironmentFile=/etc/rex-mcp/env
+StateDirectory=rex-mcp
+StateDirectoryMode=0700
+Environment=REX_MCP_STATE_DIR=/var/lib/rex-mcp
+ExecStart=/usr/bin/node /opt/rex-mcp/dist/main.js serve
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+LockPersonality=true
+MemoryDenyWriteExecute=false
+
+[Install]
+WantedBy=multi-user.target

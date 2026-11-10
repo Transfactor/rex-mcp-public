@@ -1,0 +1,9 @@
+{
+  "discoverTailscale": true,
+  "discoverSuffix": "-rex",
+  "servers": [
+    { "name": "local", "endpoint": "unix:///run/user/1000/rex/server.sock" }
+  ],
+  "host": "127.0.0.1",
+  "port": 8787
+}

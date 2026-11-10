@@ -1,0 +1,9 @@
+tunnel: rex-mcp
+credentials-file: /etc/cloudflared/rex-mcp.json
+
+ingress:
+  - hostname: mcp.example.com
+    service: http://127.0.0.1:8787
+    originRequest:
+      connectTimeout: 10s
+  - service: http_status:404

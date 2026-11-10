@@ -1,0 +1,8 @@
+node_modules
+dist
+state
+test
+.git
+*.log
+rex-mcp.json
+.env
